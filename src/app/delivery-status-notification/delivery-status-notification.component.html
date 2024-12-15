@@ -1,0 +1,303 @@
+<!-- 
+<body>
+ 
+    
+
+    <h2 style="text-align: center;">Items List</h2>
+            
+
+            <div class="mat-elevation-z8">
+              <table mat-table  [dataSource]="PurchaseProduct">
+            
+                
+                <ng-container matColumnDef="ProductName">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef><b>Product Name </b> </th>
+                  <td mat-cell *matCellDef="let  purchaseList"> {{purchaseList.productName}} </td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Purchase Id">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef><b>Purchase Id </b> </th>
+                  <td mat-cell *matCellDef="let  purchaseList"> {{purchaseList.purchaseId}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="unit">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> unit </th>
+                  <td mat-cell *matCellDef="let purchaseList"> {{purchaseList.unitType}} </td>
+                </ng-container>
+            
+            
+                <ng-container matColumnDef="symbol">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> Price </th>
+                  <td mat-cell *matCellDef="let purchaseList"> {{purchaseList.unitPrice}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="quantity">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef>  Quantity </th>
+                  <td mat-cell *matCellDef="let purchaseList"> {{purchaseList.unit}} </td>
+                </ng-container>
+
+                
+                <ng-container matColumnDef="Total">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef>  Total </th>
+                  <td mat-cell *matCellDef="let purchaseList"> {{purchaseList.totalUnitPrice}} </td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+            
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+              showFirstLastButtons 
+              aria-label="Select page of periodic elements">
+              </mat-paginator>
+            </div>
+<br>
+
+            <div class="mat-elevation-z89">
+              <table mat-table  [dataSource]="PurchaseTrnProduct">
+            
+                
+                <ng-container matColumnDef="Fleet Id">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef><b>Fleet Id</b> </th>
+                  <td mat-cell *matCellDef="let  purchaseTrnLists"> {{purchaseTrnLists.fleet_id}} </td>
+                </ng-container>
+            
+                
+                <ng-container matColumnDef="Purchase Id">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> Purchase Id </th>
+                  <td mat-cell *matCellDef="let purchaseTrnLists"> {{purchaseTrnLists.purchase_id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Address Line 1">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> Address Line 1 </th>
+                  <td mat-cell *matCellDef="let purchaseTrnLists"> {{purchaseTrnLists.address}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Address Line 2">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> Address Line 2 </th>
+                  <td mat-cell *matCellDef="let purchaseTrnLists"> {{purchaseTrnLists.address_line2}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Pin Code">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> Pin Code</th>
+                  <td mat-cell *matCellDef="let purchaseTrnLists"> {{purchaseTrnLists.pincode}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Delivery Status">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> Delivery Status </th>
+                  <td mat-cell *matCellDef="let purchaseTrnLists"> {{purchaseTrnLists.delivery_status}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Total">
+                  <th style="font-size: large; font-weight:100 ; color: black;" mat-header-cell *matHeaderCellDef> Total </th>
+                  <td mat-cell *matCellDef="let purchaseTrnLists"> {{purchaseTrnLists.total_amt}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="PurchaseTrnDisplay" ></tr>
+                <tr mat-row *matRowDef="let row; columns: PurchaseTrnDisplay;"></tr>
+              </table>
+
+            </div>
+
+
+   <br>
+   <br>
+     <table>
+      <tr>
+        <th>Total</th>
+        <th>Coustomer Id</th>
+        <th>Discount Amount</th>
+        <th>Delivery Charge</th>
+        <th>Net Playable Amount</th>
+      </tr>
+      <tr>
+        <td>{{PurchaseProductDet.total}}</td>
+        <td>{{PurchaseProductDet.customer_id}}</td>
+        <td>50</td>
+        <td>{{PurchaseProductDet.delivery_charge}}</td>
+        <td>{{PurchaseProductDet.net_payable_amt}}</td>
+      </tr>
+</table>
+<button type="submit" class="login-button" (click)="TableHide()">Show delivery status </button>
+<div *ngIf="this.isButtonVisible" >
+
+
+    <h4>Delivery Status :  {{PurchaseProductDet.delivery_status}}</h4>
+    <h4>Customer Address :  {{PurchaseProductDet.delivery_address}}</h4>
+</div>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	</head>
+	<body>
+    <div *ngIf="this.purchView" >
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-4">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="h5 mb-4 text-center"></h3>
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						    	<th>&nbsp;</th>
+						    	<th><b>Shop</b></th>
+						    	<th><b>Delivey Address</b></th>
+						      <th><b>Purchase Status</b></th>
+						      <th><b>Product Count</b></th>
+						      <th><b>Total</b></th>
+						      <th>&nbsp;</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                <!-- <div *ngFor="let purchaseList of purchaseList"> -->
+						    <tr *ngFor="let purchaseList of purchaseList" class="alert" role="alert">
+						    	<td>
+					            	<span></span>
+						    	</td>
+						      	<td>
+						    		<div>{{purchaseList.address}}</div>
+						      	</td>
+						      	<td>
+						      		<div class="email">
+						      			<span>{{purchaseList.address_line2}}</span>
+						      		</div>
+						      	</td>
+							  		<div *ngIf="purchaseList.delivery_status=='PEND'; else elseBlock1">
+						      			<td>Pending</td>
+							  		</div>
+									<ng-template #elseBlock1>
+											<div *ngIf="purchaseList.delivery_status=='RDP' else elseBlock2">
+													<td>Pending</td>
+											</div>
+									</ng-template>
+									<ng-template #elseBlock2>
+										<td>Completed</td>
+									</ng-template>
+						      	<td class="quantity">
+                   						 {{purchaseList.items_count}}
+					        	<!-- <div class="input-group">
+				             	<input type="text" name="quantity" class="quantity form-control input-number" value="2" min="1" max="100">
+				          	</div> -->
+				          		</td>
+				          <td>{{purchaseList.total_amt}} </td>
+						      <td>
+                    <button mat-button color="warn" style="width: 100px;  height: 40px; font-size: medium;" (click)="productDisplay(purchaseList.purchase_id)" > VIEW </button>
+						      	<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				            	<span aria-hidden="true"><i class="fa fa-close"></i></span> -->
+				          	<!-- </button> -->
+				        	</td>
+             
+						    </tr>
+              <!-- </div> -->
+						  </tbody>
+						</table>
+   
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<div *ngIf="this.bussinessMenu" >
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-4">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="h5 mb-4 text-center"></h3>
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						    	<th>&nbsp;</th>
+						    	<th><b>Product Name</b></th>
+						    	<th><b>Unit Type</b></th>
+						      <th><b>Quantity</b></th>
+						      <th><b>Unit Price</b></th>
+						      <th>Total</th>
+						      <th><button  mat-raised-button color="warn" style="width: 80px;  height: 40px; font-size: medium;" (click)="close()"> CLOSE </button></th>
+						    </tr>
+						  </thead>
+						  <tbody>
+                <!-- <div *ngFor="let purchaseList of purchaseList"> -->
+						    <tr *ngFor="let productLists of productLists" class="alert" role="alert">
+						    	<td>
+					            <span></span>
+						    	</td>
+						    	<td>
+						    		<div>{{productLists.productName}}</div>
+						    	</td>
+						      <td>
+						      	<div>
+						      		<span>{{productLists.unitType}}</span>
+						      	</div>
+						      </td>
+						      <td>{{productLists.unit}}</td>
+						      <td class="quantity">
+                    {{productLists.unitPrice}}
+					        	<!-- <div class="input-group">
+				             	<input type="text" name="quantity" class="quantity form-control input-number" value="2" min="1" max="100">
+				          	</div> -->
+				          </td>
+				          <td>{{productLists.totalUnitPrice}} </td>
+						      <!-- <td> -->
+						      	<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				            	<span aria-hidden="true"><i class="fa fa-close"></i></span> -->
+				          	<!-- </button> -->
+				        	<!-- </td> -->
+             
+						    </tr>
+              <!-- </div> -->
+						  </tbody>
+						</table>
+   
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</div>
+
+
+
+	</body>
+</html>
+

@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0f7fa;
+            background-image: url('assets/images/dtimeupdate2.webp');
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            width: 500px;
+        }
+        h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+        table {
+          
+            border-collapse: collapse;
+       
+         
+        }
+        th, td {
+            padding: 6px;
+            text-align: left;
+        }
+        th {
+            background-color: #64b4d1;
+            border-radius: 2px 0 0 2px;
+            
+        }
+        td {
+            
+            border-radius: 0 5px 5px 0;
+        }
+        mat-form-field {
+            display:inline-flex;
+            margin: 20px 0;
+            width: 100%;
+            background-color: #1ab5a1;
+           
+        }
+        button {
+            width: 160px;
+            height: 45px;
+            font-size: medium;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .time-picker {
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #169382;
+            font-weight: bold;
+           
+
+        }
+        .time-picker select {
+            font-size: 16px;
+            padding: 5px;
+            margin: 0 5px;
+            color: #169382;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>DELIVERY TIME UPDATE</h2>
+    <br>
+    <table>
+        <tr>
+            <th>Current Delivery Date</th>
+            <td>:{{Deldte}}</td>
+        </tr>
+        <tr>
+            <th>Current Delivery Time</th>
+            <td>:{{deltme}}</td>
+        </tr>
+    </table>
+    <br>
+    <mat-form-field>
+        <mat-label>Choose a Date</mat-label>
+        <input matInput [(ngModel)]="TimeSetting.date" [matDatepicker]="picker1" autocomplete="off">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1 color="primary"></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <div class="time-picker">
+        <input type="number" [(ngModel)]="hour" min="1" max="12" />
+        :
+        <input type="number" [(ngModel)]="minute" min="0" max="55" step="5" />
+        <select [(ngModel)]="period">
+          <option *ngFor="let p of periods">{{ p }}</option>
+        </select>
+      </div>
+      
+    <br>
+    <button mat-raised-button color="accent" (click)="Updatetime()">UPDATE</button>
+    
+    <button mat-button color="primary" (click)="Cancel()">CANCEL</button>
+</div>
+
+</body>
+</html>

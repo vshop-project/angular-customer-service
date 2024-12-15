@@ -1,0 +1,40 @@
+import { Component } from '@angular/core';
+import { AppService } from './service/http-client.service';
+import { Router } from '@angular/router';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'Membership Management';
+  searchText = '';
+  characters = [
+    'Ang Mo Kio',
+    'Bishan',
+    'Punggol',
+    'Kuala lumpur',
+    'Raffles City',
+    'Marina Bay',
+    'PasarRis',
+    ' ChangiAirport'
+  ]
+ 
+ 
+  constructor(public httpclientService: AppService, 
+    public router: Router) { }
+
+    
+  // constructor(private app: AppService, private http: HttpClient, private router: Router) {
+  //   this.app.authenticate(undefined, undefined);
+  // }
+
+ logout() {
+  localStorage.setItem('username',"");
+  localStorage.setItem('isLoggedIn', "false"); 
+  this.router.navigateByUrl('/login');
+
+  }
+}

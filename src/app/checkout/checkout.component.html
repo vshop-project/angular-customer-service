@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+  
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  </head>
+  <body class="goto-here">
+		<div class="py-1 bg-primary">
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+	    		<div class="col-lg-12 d-block">
+		    		<div class="row d-flex">
+		    			<div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+
+					    </div>
+					    <div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+
+					    </div>
+					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+						    <span class="text"></span>
+                <br>
+                <br>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		  </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" ></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	    </div>
+	  </nav>
+
+    <div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span></span></p>
+            <h1 class="mb-0 bread">Checkout</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  <br>
+  <br>
+  <br>
+
+  <br>
+  <div class="containerss">
+			
+    <div class="row row-pb-lg">
+      <div class="col-md-12">
+        <div class="product-name d-flex">
+          <div class="one-forth text-left px-4">
+            <span>Product Details</span>
+          </div>
+          <div class="one-eight text-center">
+            <span>Price</span>
+          </div>
+          <div class="one-eight text-center">
+            <span>Quantity</span>
+          </div>
+          <div class="one-eight text-center">
+            <span>Total</span>
+          </div>
+          <div class="one-eight text-center px-4">
+            <span>Remove</span>
+          </div>
+        </div>
+        <div class="product-cart d-flex" *ngFor="let item of items">
+          <div class="one-forth">
+            <div class="product-img" style='background-image: url("assets/images/product-2.jpg");'>
+            </div>
+            <div class="display-tc">
+              <h3>{{ item.ProductName}}</h3>
+            </div>
+          </div>
+          <div class="one-eight text-center">
+            <div class="display-tc">
+              <span class="price">{{item.basicUnitPrice | number:'.1-2'}} Rs</span>
+            </div>
+          </div>
+          <div class="one-eight text-center">
+            <div class="display-tc">
+              <span class="price">{{ item.Unit}} {{ item.UnitType}}</span>
+            </div>
+          </div>
+          <div class="one-eight text-center">
+            <div class="display-tc">
+              <span class="price">{{ item.net_amount}}</span>
+            </div>
+          </div>
+          <div class="one-eight text-center">
+            <div class="display-tc">
+              <a  (click)="deleteCart(item.ProductName,item.net_amount,item.UnitType,item.Unit,item.basicUnitPrice)" class="closed"></a>
+            </div>
+          </div>
+        </div>
+
+
+
+        </div>
+        </div>
+        </div>
+  <section class="ftco-section">
+    <div class="container" >
+      <div class="row justify-content-center">
+      <div class="col-xl-10 ftco-animate">
+              <form action="#" class="billing-form">
+               <h3 class="mb-4 billing-heading" data-target="#collapseOne">Billing Details</h3> 
+          <div class="row align-items-end" id="collapseOne" aria-labelledby="headingOne" >
+            <div class="col-md-6">
+            <div class="form-group">
+              <label for="firstname">Full Name</label>
+            <input type="text" class="form-control" name="firstname"  [(ngModel)]="delivDetails.fullname" >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="lastname">Email Address</label>
+            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="delivDetails.email" >
+            </div>
+          </div>
+          <div class="w-100"></div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="country">Choose Unit Type</label>
+                <div class="select-wrap">
+              <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+              <select name="" id="" class="form-control" (change)="transportTypeChangeHandler($event)">
+                <option selected="true" disabled>Choose Unit Type</option>
+                <option style="color: black;" *ngFor="let deliveryType of deliveryType" [ngValue]="delivDetails.deliveryType"   name="deliveryType">{{deliveryType}}</option>
+              </select>
+              </div>
+              </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label for="streetaddress">Address</label>
+            <input type="text" class="form-control" id="adr" name="address"  [(ngModel)]="delivDetails.address" >
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <label for="towncity">Town / City</label>
+            <input type="text" class="form-control" id="city" name="city" [(ngModel)]="delivDetails.city">
+            </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="postcodezip">Street</label>
+            <input type="text" class="form-control"  name="street" [(ngModel)]="delivDetails.street" placeholder="">
+            </div>
+            </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="emailaddress">Pin Code</label>
+            <input type="text" class="form-control" id="zip" class="form-control" name="zip" [(ngModel)]="delivDetails.zip" placeholder="">
+            </div>
+          </div>
+          <div class="w-100"></div>
+          <div class="col-md-12">
+          </div>
+          </div>
+        </form>
+  
+  
+  
+        <div class="row mt-5 pt-3 d-flex">
+          <div class="col-md-6 d-flex">
+            <div class="cart-detail cart-total bg-light p-3 p-md-4">
+              <h3 class="billing-heading mb-4">Cart Total</h3>
+              <p class="d-flex">
+                    <span>Subtotal</span>
+                    <span>{{total_amount}}</span>
+                  </p>
+                  <p class="d-flex">
+                    <span>Delivery Charge</span>
+                    <span>0.00</span>
+                  </p>
+                  <p class="d-flex">
+                    <span>Discount</span>
+                    <span>0.00</span>
+                  </p>
+                  <hr>
+                  <p class="d-flex total-price">
+                    <span>Total</span>
+                    <span>{{total_amount}}</span>
+                  </p>
+                  </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cart-detail bg-light p-3 p-md-4">
+              <h3 class="billing-heading mb-4">Payment Method</h3>
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <div class="radio">
+                         <label><input type="radio" name="optradio" class="mr-2"> Direct Bank Tranfer</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <div class="radio">
+                         <label><input type="radio" name="optradio" class="mr-2"> QR Code Payment</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <div class="radio">
+                         <label><input type="radio" name="optradio" class="mr-2"> Pay Later</label>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <p><a class="btn btn-primary py-3 px-4" (click)="purchaseProduct1()">Place an order</a></p>
+                  </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </section>  
+  </body>
+</html>

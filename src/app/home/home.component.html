@@ -1,0 +1,95 @@
+
+<br>
+<br>
+
+<!-- In your component HTML file -->
+<button (click)="register()">Register</button>
+<br>
+<br>
+<button (click)="login()">Login</button>
+
+ <button type="submit" class="login-button" (click)="generateTopic()">Topic Generate</button> 
+ <br>
+<br>
+
+<a routerLinkActive="active" routerLink="/maintLocation">ADD NEW LOCATION </a><br>
+
+<br>
+<a routerLinkActive="active" routerLink="/deliveryRetrive">DELIVERY UNIT UPDATE</a><br>
+<br>
+<a routerLinkActive="active" routerLink="/Shops">DELIVERY UNIT UPDATE</a><br>
+<br>
+
+<a routerLinkActive="active" [routerLink]="['/delivery','nan@gmail.com']">DELIVERY UNIT REGISTRATION</a><br>
+<a routerLinkActive="active" routerLink="/shopPurchase">DELIVERYgxsgfsddvf</a><br>
+<br>
+
+<a routerLinkActive="active" routerLink="/priorityUpdate">DELIVERY UNIT STATUS UPDATE</a><br>
+<br>
+<a routerLinkActive="active" [routerLink]="['/CustRegister','3']">DELIVERY UNIT PROFILE</a>
+
+<br>
+<br>
+<a routerLinkActive="active" [routerLink]="['/deliveryTimeUpd/20241212152KL 1254000001']">TIME UPD</a>
+<br>
+
+<a routerLinkActive="active" routerLink="/productUpdate">DELIVERY DETAILS UPDATE</a>
+
+<br>
+<br>
+
+<br>
+
+<a routerLinkActive="active" routerLink="/productAdd">Product Update</a>
+
+<br>
+<br>
+<button type="submit" class="login-button" (click)="StopScheduler()">Stop Scheduler</button>
+<br>
+<br>
+<button type="submit" class="login-button" (click)="StartScheduler()">Start Scheduler</button>
+<h1>Greeting</h1>
+<div [hidden]="!authenticated()">
+	<p>The ID is {{greeting.id}}</p>
+	<p>The content is {{greeting.content}}</p>
+</div> 
+<div [hidden]="authenticated()">
+	<p>Login to see yours greeting</p>
+</div>
+
+<div>test authorized</div>
+
+
+<img style="width: 50px;" src="assets/images/user-circle.svg" />
+
+<br>
+<br>
+ <button type="submit" class="login-button" (click)="sendMessageToKafka('arun')">AAA</button> 
+ <br>
+<br>
+ <!-- <button type="submit" class="login-button" (click)="MessageToKafka()">BBB</button>  -->
+<br>
+<br>
+ <button type="submit" class="login-button" (click)="TestToKafka()">CCC</button> 
+ <br>
+<br>
+ <!-- <button type="submit" class="login-button" (click)="Kafka()">get kafka single value</button>  -->
+<br>
+<ul>
+	<li *ngFor="let message of kafkaMessages">{{ message.value }}</li>
+  </ul>
+
+  <h2>Locations</h2>
+  <ul>
+	<li *ngFor="let location of locations">
+	  <button (click)="selectLocation(location.name)">{{ location.name }}</button>
+	</li>
+  </ul>
+  
+  <a ><img  class="logo" src="assets/images/logo.jpg"></a>
+  <br>
+  <br>
+  <button type="submit" class="login-button" (click)="session()">Session Generate</button> 
+  <br>
+  <br>
+  <button type="submit" class="login-button" (click)="getSession('user')">Get Session</button> 

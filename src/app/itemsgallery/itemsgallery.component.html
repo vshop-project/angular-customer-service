@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+</head>
+<body>
+</body>
+</html>
+<body class="goto-here">
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Vegefoods</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+
+    </div>
+  </nav>
+    <div class="hero-wrap hero-bread" style="background-image: url('assets/images/bg_1.jpg');">
+    <div class="container">
+      <div class=" slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html"><b>Home</b></a></span> <span><b>Products</b></span></p>
+          <h1 class="mb-0 bread">Products</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+<br>
+<br>
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10 mb-5 text-center">
+          <ul  class="product-category">
+            <li><a Active="active" style="cursor:pointer"  (click)="filterBy='all'" (click)="activate('all')" [class.active]="all">All</a></li>
+            <li><a Active="active" style="cursor:pointer" (click)="filterBy='Vegetables'" (click)="activate('vegitable')" [class.active]="vegitable">Vegetables</a></li>
+            <li><a Active="active" style="cursor:pointer" (click)="filterBy='Fruits'" (click)="activate('Fruits')" [class.active]="Fruits">Fruits</a></li>
+            <li><a Active="active" style="cursor:pointer" (click)="filterBy='Nonveg'" (click)="activate('Nonveg')" [class.active]="Nonveg">Nonveg</a></li>
+            <li><a Active="active" style="cursor:pointer" (click)="filterBy='Others'" (click)="activate('Others')" [class.active]="Others">Others</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div  *ngFor="let img of (prodDet | filterimages:filterBy)"> 
+      <div class="colu">
+
+          <div class="product">
+            <a  class="img-prod"><img class="img-fluid" src="assets/images/product-1.jpg" alt="Colorlib Template">
+              <span class="status"><span style="font-size: 12px;"> {{img.discount_percentage}}% Off</span></span>
+              <div class="overlay"></div>
+            </a>
+            <div class="text py-3 pb-4 px-3 text-center">
+              <h3><a style="line-height: 2.6;">{{img.prodname}}  {{img.unit}} {{img.unittype}}</a></h3>
+              <div class="d-flex">
+                <div class="pricing">
+                  <p class="price"><span class="mr-2 price-dc"></span><span class="price-sale"><b>&#x20b9;{{ img.net_amount}} Rs</b></span></p>
+                </div>
+              </div>
+              <div class="bottom-area ">
+                <div class="d-flex">
+                  <a  class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                    <div *ngIf="img.availabilitystatus=='Y'; else elseBlock" >
+                    <span><i><button class="brdButton" [disabled]="this.vall.includes(img.prodname)" (click)="addToCart(img.prodname,img.unit,img.unittype,img.net_amount,img.shopregid)"><b>ADD TO CART</b></button></i></span>
+                  </div>
+                    
+                    <ng-template  #elseBlock><button class="brdButton"><b style="color:red;">OUT OF STOCK</b></button></ng-template>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+      </div>
+   
+    </div>
+      <div *ngIf="this.isButtonVisible" >
+      <h1>Cart</h1>
+  
+      <div *ngFor="let item of items">
+      
+
+           <a> <table class = "crtbtn-container" >
+             <tr><td><a class="crtproname"> {{ item.ProductName}}</a></td>
+             <td><button (click)="addUpdateCart(item.ProductName,item.net_amount,item.UnitType,item.Unit,item.basicUnitPrice)" class="crtbtn">+</button>&nbsp;&nbsp;
+              
+  
+              <select class="crtselect"  (change)="categoryChangeHandler($event)" required>
+                <option selected="true" Enabled>{{dft_unitsplit}}</option>
+                <option *ngFor="let unitsplit of unitsplit" [ngValue]="unitsplit"  name="unitsplit" >{{unitsplit}}
+                </option>
+             </select>
+              
+              
+             &nbsp;&nbsp; <button  (click)="minusUpdateCart(item.ProductName,item.net_amount,item.UnitType,item.Unit,item.basicUnitPrice)" class="crtbtn">-</button></td>
+             <td><a class="crtprice" >Rs:{{ item.net_amount}}</a></td></tr>
+            </table></a>
+        
+        <div><a class="crtunittype">({{ item.UnitType}}:{{ item.Unit}})</a></div>
+       
+      </div>
+    <hr>
+    <p>Subtotal <span class="price" ><b>RS:{{total_amount}}</b></span></p>
+  
+    <button routerLink="/checkout" class="btn">CHECKOUT  </button>
+    </div>
+
+
+    </div>
+  </section>
+
+</body>

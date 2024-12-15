@@ -1,0 +1,35 @@
+
+body {
+  text-align: left; 
+}
+table, th,td{
+    border: none;
+  }
+  th{
+    text-align: left;
+    font-size: 1.2em;
+    font-style: italic;
+ 
+  }
+  td{
+    text-align: left;
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 200%;
+
+  }
+  .center{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mat-button.mat-success,
+  .mat-stroked-button.mat-success {
+    background-color: green;
+    color: white;
+  }
+
+
+
+
+

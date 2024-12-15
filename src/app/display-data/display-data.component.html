@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Vesperr Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <meta name="author" content="Untree.co" />
+  <link rel="shortcut icon" href="favicon.png" />
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap5" />
+
+</head>
+<body>
+
+    <nav class="site-nav">
+        <div class="container">
+          <div class="menu-bg-wrap">
+            <div class="site-navigation">
+              <a (click)="log('4')">
+                <img class="logo" src="assets/images/logo.jpg">
+            </a>
+    
+              <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
+                <li class="active"><a href="index.html">Home</a></li>
+            <ng-container *ngIf="this.HomeNoti" >
+              <li > <a style="cursor: pointer;" (click)="login()">Customer LogIn</a></li>
+          </ng-container>
+          <ng-container *ngIf="this.isButtonVisible" > 
+                <li><a style="cursor: pointer;"  routerLink="/deliveryNotifi" matBadge={{notification}} (click)="openDialog()">Order Details</a></li>
+            </ng-container>
+                <li><a style="cursor: pointer;" (click)="logout()" >Log Out</a></li>
+                <li><a routerLinkActive="active" routerLink="/home">Contact Us</a></li>
+    
+              </ul>
+    
+              <a
+                href="#"
+                class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+                data-toggle="collapse"
+                data-target="#main-navbar"
+              >
+                <span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div class="hero-slide">
+            <div id="slide">
+      
+                    <figure>
+                        <img src="assets/images/grocery-shopping-5987164_1920.jpg" >
+          </figure>
+        </div>
+    
+    
+    
+        </div>
+
+        <div class="container">
+        <div class="row justify-content-center align-items-center">
+        <div class="col-lg-9 text-center">
+            <br>
+        <h1 class="heading anim" data-aos="fade-up" style="font-family: Georgia, 'Times New Roman', Times, serif;"><i>
+            Welcome To The Fresh<br> World</i>
+          </h1>
+  
+             <button type="submit" class="shp"> <a href="#search" style="color: rgb(11, 92, 48);font-weight: 800; font-size: large;"> Shop Now..</a></button>
+ 
+        </div>
+        </div>
+        </div>
+ 
+        <img class="veg anim" src="assets/images/vegetables-7357585_640.png">
+
+      </div>
+    
+    
+    
+      <section class="features-1">
+        <div class="container">
+          <div class="rows">
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="box-feature">
+                <span class="flaticon-house"></span>
+                <h3 class="mb-3">About Us</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Voluptates, accusamus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+        <div class="mb-5">
+    
+            <h2 class="font-weight-bold text-primary heading">
+           
+            </h2>
+        </div>
+     
+        <br id="search">
+                
+<div class="container" >
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-9 text-center">
+        <form
+          action="#"
+          class="narrow-w form-search d-flex align-items-stretch mb-3 anim"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <input style="color: black;"
+            #locBar
+            type="text"
+            (keyup.enter)="update($event)"
+            class="form-control px-4"
+            list="listLoc" 
+            matInput
+            aria-label="listLoc" [matAutocomplete]="auto1" [formControl]="myControl"
+            placeholder="Enter Location Name"
+            name="locBar"
+          />
+          <mat-autocomplete #auto1="matAutocomplete" >
+              <mat-option  (click)="update($event)" *ngFor="let listLoc of filteredOptions | async " [value]="listLoc" >
+                <a href="#LocName"><span>{{listLoc}}</span></a> 
+              </mat-option>
+             </mat-autocomplete>
+             &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary" (click)="update(locBar)"> <a href="#LocName" style="color: white;"> Search</a></button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <input
+            #proBar
+            type="text"
+            (keyup.enter)="product($event)"
+            class="form-control px-4"
+            list="listPrd" 
+            matInput
+            aria-label="listPrd" [matAutocomplete]="auto" [formControl]="myControl1"
+            placeholder="Enter Product Name"
+            name="proBar"
+          />
+          <mat-autocomplete #auto="matAutocomplete" >
+              <mat-option (click)="product($event)" *ngFor="let listPrd of filteredOptions2 | async " [value]="listPrd" >
+                    <span>{{listPrd}}</span>
+              </mat-option>
+             </mat-autocomplete>
+             &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-primary" (click)="product(proBar)">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+    <div class="section-title" id="LocName">
+                <h2>Shops in {{locationid}} </h2>
+    </div>
+
+    <div class="scroll">
+        <div class="row">
+        <div  class="columns" *ngFor="let emp of employees"> 
+    <section  class="more-services">
+      <div >
+
+        <div >
+          <div class=" d-flex align-items-stretch">
+            <div class="card skeleton" style='background-image: url("assets/images/offer1.jpg");' data-aos="fade-up" data-aos-delay="100">
+              <div class="card-body">
+
+                <h5 class="card-title"><a routerLinkActive="active" [routerLink]="['itemslist',locationid,emp.shopRegId,emp.shopName]">{{emp.shopName}} ({{emp.shopLoc}})</a></h5>
+         
+                <p class="card-text">Location : {{emp.address}}</p>
+              <ul> <a class="btnss btn-primary"  routerLinkActive="active"  [routerLink]="['itemslist',locationid,emp.shopRegId,emp.shopName]" ><i ></i>Shop Now</a></ul>  
+            </div>
+            </div>
+          </div>
+       
+        </div>
+
+      </div>
+    </section>
+</div>
+</div>
+    </div>
+
+           
+
+    <div class="footer_section layout_padding">
+    
+        <b><i><h1 style="text-align: center;color: white;">ECart</h1></i></b>
+        <div class="input_bt">
+           <input type="text" class="mail_bt" placeholder="Your Email" name="Your Email">
+           <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
+        </div>
+        <div class="footer_menu">
+           <ul>
+              <li><a href="#">Best Sellers</a></li>
+              <li><a href="#">Gift Ideas</a></li>
+              <li><a href="#">New Releases</a></li>
+              <li><a href="#">Today's Deals</a></li>
+              <li><a href="#">Customer Service</a></li>
+           </ul>
+        </div>
+        <div class="location_main">Help Line  Number : <a href="#">+1 1800 1200 1200</a></div>
+     
+  </div>
+  
+
+   
+
+<!-- 
+  </main>End #main -->
+
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+ 
+</body>
+
+</html>
